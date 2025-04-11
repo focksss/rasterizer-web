@@ -4,26 +4,12 @@ import { Controller } from 'https://github.com/focksss/rasterizer-web/new/main/c
 import { Triangle } from 'https://github.com/focksss/rasterizer-web/new/main/classes/Triangle.js';
 import { GLTF } from 'https://github.com/focksss/rasterizer-web/new/main/classes/gLTF.js';
 
-let shader = null;
-const canvas = document.getElementById('glCanvas');
-let aspect = canvas.width / canvas.height;
-
-let cameraPosition = new Vector3(0, 0, 2);
-let cameraRotation = new Vector3(0, 0, 0);
-let animationFrameId = null;
-
-let VAO = 0; let VBO = 0;
-
-let lastTime = performance.now();
-let frames = 0;
-let fps = 0;
-
 export class Renderer {
-  constructor(gl, canvas) {
+  constructor(gl) {
     this.gl = gl;
     this.shader = null;
     this.canvas = document.getElementById('glCanvas');
-    this.aspect = canvas.width / canvas.height;
+    this.aspect = this.canvas.width / this.canvas.height;
 
     this.cameraPosition = new Vector3(0, 0, 2);
     this.cameraRotation = new Vector3(0, 0, 0);
